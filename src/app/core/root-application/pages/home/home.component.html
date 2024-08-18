@@ -1,0 +1,42 @@
+<div class="part">
+    <h1 class="headline">You have survived {{ survivalDays }} days</h1>
+    <span class="description">You have survived {{ survivalYears() }} years</span>
+    <span class="description">{{ ((survivalDays / lifetimeDays * 100)).toFixed(0) }}%</span>
+    <component-progress
+        [min]="0"
+        [max]="lifetimeDays"
+        [value]="survivalDays"
+    ></component-progress>
+</div>
+
+<div class="part">
+    <h1 class="headline">You have {{lifetimeDays - survivalDays}} days left</h1>
+    <span class="description">You have {{ (lifetimeYears() - survivalYears()).toFixed(0) }} years left</span>
+    <span class="description">{{ (100-(survivalDays / lifetimeDays * 100)).toFixed(0) }}%</span>
+    <component-progress
+        class="reverse"
+        [min]="0"
+        [max]="lifetimeDays"
+        [value]="lifetimeDays-survivalDays"
+    ></component-progress>
+</div>
+
+<div class="part">
+    <h1 class="headline">Your days</h1>
+    <component-block-grid
+        [counts]="lifetimeDays"
+        [filledCounts]="survivalDays"
+        [blockSize]="10"
+    ></component-block-grid>
+</div>
+
+<div class="fixed-icon-button">
+    <material-design-theme-dark-mode #dark>
+        <md-fab
+            (click)="dark.toggle()"
+            variant="primary"
+        >
+            <md-icon slot="icon">{{dark.isDark() ? 'light_mode' : 'dark_mode'}}</md-icon>
+        </md-fab>
+    </material-design-theme-dark-mode>
+</div>

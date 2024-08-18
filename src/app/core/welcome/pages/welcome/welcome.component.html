@@ -1,0 +1,45 @@
+<mat-vertical-stepper #stepper>
+    <mat-step>
+        <form class="form">
+            <ng-template matStepLabel>Step 1</ng-template>
+            <span class="headline">
+                Please answer some questions, We do not collect any private information.
+            </span>
+            <md-filled-button (click)="stepper.next()">Let's start</md-filled-button>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form class="form">
+            <ng-template matStepLabel>Step 2</ng-template>
+            <span class="headline">
+                Please tell us your birthday.
+            </span>
+            <mat-card class="calendar">
+                <mat-calendar [(selected)]="birthday"></mat-calendar>
+            </mat-card>
+            <md-filled-button
+                (click)="stepper.next()"
+                [disabled]="birthday().length === 0 || birthday() === ''"
+            >Next</md-filled-button>
+        </form>
+    </mat-step>
+    <mat-step>
+        <form class="form">
+            <ng-template matStepLabel>Step 3</ng-template>
+            <span class="headline">
+                Please tell us your life expectancy.
+            </span>
+            <mat-card class="calendar">
+                <mat-calendar [(selected)]="deathday"></mat-calendar>
+            </mat-card>
+            <div class="actions">
+                <md-text-button (click)="stepper.previous()">Back</md-text-button>
+                <md-filled-button
+                    (click)="done()"
+                    [disabled]="deathday().length === 0 || deathday() === ''"
+                >Done</md-filled-button>
+            </div>
+        </form>
+
+    </mat-step>
+</mat-vertical-stepper>

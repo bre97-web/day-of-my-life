@@ -1,0 +1,21 @@
+:host {
+
+    --mat-stepper-header-height: 56px;
+
+    & .form {
+        @apply my-4;
+        max-width: 300px;
+
+        & .headline {
+            @apply on-surface body-medium block mb-8;
+        }
+
+        & .calendar {
+            @apply mb-8;
+        }
+
+        & .actions {
+            @apply flex gap-2;
+        }
+    }
+}

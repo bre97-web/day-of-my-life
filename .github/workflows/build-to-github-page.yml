@@ -1,0 +1,25 @@
+name: Deploy to gh-pages
+
+on:
+    workflow_dispatch:
+    repository_dispatch:
+        types:
+          - trigger-build
+    push:
+        branches:
+          - main
+
+jobs:              
+    deploy-to-github:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+          
+          - name: Run build
+            run:  npm ci && npm run build
+
+          - name: Deploy to gh-pages
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./dist/day-of-my-life/browser

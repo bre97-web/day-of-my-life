@@ -1,0 +1,29 @@
+:host {
+    @apply flex flex-col gap-8 p-12 container mx-auto;
+
+    &>.part {
+        @apply border border-outline-variant rounded-3xl surface-container-lowest p-8;
+    }
+
+    & .headline {
+        @apply headline-medium;
+    }
+
+    & .headline {
+        @apply block on-surface mb-2;
+    }
+
+    & .description {
+        @apply block on-surface-variant mb-4;
+    }
+
+    ::ng-deep .reverse>* {
+        transform: rotate(180deg);
+        --md-linear-progress-active-indicator-color: var(--md-sys-color-error);
+        --md-linear-progress-track-color: var(--md-sys-color-error-container);
+    }
+
+    &>.fixed-icon-button {
+        @apply fixed right-4 bottom-4;
+    }
+}

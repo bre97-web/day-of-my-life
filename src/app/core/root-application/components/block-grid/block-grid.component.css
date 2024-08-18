@@ -1,0 +1,21 @@
+:host {
+    @apply inline-block w-full h-fit;
+
+    &>.block-grid {
+        @apply flex flex-wrap;
+
+        &::ng-deep>.block-unit {
+            @apply block border border-outline-variant;
+
+        }
+
+        &::ng-deep>.filled {
+            @apply primary;
+        }
+
+        &::ng-deep>:not(.filled).unfilled {
+            @apply primary-container;
+        }
+
+    }
+}

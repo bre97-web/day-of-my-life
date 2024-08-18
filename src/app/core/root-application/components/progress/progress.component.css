@@ -1,0 +1,5 @@
+:host {
+    --md-linear-progress-active-indicator-height: 48px;
+    --md-linear-progress-track-height: 48px;
+    --md-linear-progress-track-shape: 28px;
+}
