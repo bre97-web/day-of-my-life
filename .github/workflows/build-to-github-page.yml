@@ -7,7 +7,7 @@ on:
           - trigger-build
     push:
         branches:
-          - main
+          - master
 
 jobs:              
     deploy-to-github:
